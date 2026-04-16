@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3]
+
+[ext_resource type="StyleBox" path="res://scripts/ui/ui_kit.gd" id="1"]
+
+[resource]
+default_font_size = 16
