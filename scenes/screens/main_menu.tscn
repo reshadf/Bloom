@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bloom_main_menu_v3"]
+
+[ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_menu"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.96, 0.94, 0.9, 1)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Spacer1" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TitleArea" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="Title" type="Label" parent="VBox/TitleArea"]
+layout_mode = 2
+text = "🌸 BLOOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tagline" type="Label" parent="VBox/TitleArea"]
+layout_mode = 2
+text = "Plant. Grow. Perfect."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="PlayButton" type="Button" parent="VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+custom_minimum_size = Vector2(250, 70)
+text = "▶  PLAY"
+
+[node name="Spacer3" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="MenuButtons" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="LevelsBtn" type="Button" parent="VBox/MenuButtons"]
+custom_minimum_size = Vector2(140, 60)
+text = "📋 Levels"
+
+[node name="ShopBtn" type="Button" parent="VBox/MenuButtons"]
+custom_minimum_size = Vector2(140, 60)
+text = "🛒 Shop"
+
+[node name="SettingsBtn" type="Button" parent="VBox/MenuButtons"]
+custom_minimum_size = Vector2(140, 60)
+text = "⚙️ Settings"
+
+[node name="Spacer4" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3

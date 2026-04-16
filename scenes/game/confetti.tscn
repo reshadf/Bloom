@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bloom_confetti"]
+
+[node name="Confetti" type="Node2D"]
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 3.0
+explosiveness = 0.8
+randomness = 1.0
+draw_order = 0
+texture = null
+gravity = Vector2(0, 98)
+
+[node name="Color" type="Gradient" parent="."]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(Color(1, 0.85, 0.2, 1), Color(1, 0.5, 0.5, 1), Color(0.5, 0.8, 0.5, 1))

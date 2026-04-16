@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://bloom_game_screen_v2"]
+
+[ext_resource type="Script" path="res://scripts/game/game_screen.gd" id="1_game"]
+[ext_resource type="Script" path="res://scripts/game/grid.gd" id="2_grid"]
+[ext_resource type="Script" path="res://scripts/ui/game_header.gd" id="3_header"]
+[ext_resource type="Script" path="res://scripts/ui/game_footer.gd" id="4_footer"]
+[ext_resource type="Script" path="res://scripts/ui/modal.gd" id="5_modal"]
+[ext_resource type="Script" path="res://scripts/ui/star_display.gd" id="6_stars"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/game_header.tscn" id="res_header"]
+[ext_resource type="PackedScene" path="res://scenes/ui/game_footer.tscn" id="res_footer"]
+
+[node name="GameScreen" type="CanvasLayer"]
+script = ExtResource("1_game")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.96, 0.94, 0.9, 1)
+
+[node name="GameHeader" type="CanvasLayer" parent="."]
+script = ExtResource("3_header")
+
+[node name="Bar" type="PanelContainer" parent="GameHeader"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 0.0
+offset_bottom = 70.0
+
+[node name="HBox" type="HBoxContainer" parent="GameHeader/Bar"]
+layout_mode = 2
+
+[node name="HomeButton" type="Button" parent="GameHeader/Bar/HBox"]
+custom_minimum_size = Vector2(48, 48)
+text = "🏠"
+
+[node name="Spacer" type="Control" parent="GameHeader/Bar/HBox"]
+size_flags_horizontal = 3
+
+[node name="LevelLabel" type="Label" parent="GameHeader/Bar/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="GameHeader/Bar/HBox"]
+size_flags_horizontal = 3
+
+[node name="MovesLabel" type="Label" parent="GameHeader/Bar/HBox"]
+layout_mode = 2
+text = "Moves: 5"
+horizontal_alignment = 2
+
+[node name="RestartButton" type="Button" parent="GameHeader/Bar/HBox"]
+custom_minimum_size = Vector2(48, 48)
+text = "↺"
+
+[node name="PlantToolbar" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 90.0
+offset_bottom = 170.0
+
+[node name="FlowerBtn" type="Button" parent="PlantToolbar"]
+custom_minimum_size = Vector2(80, 80)
+tooltip_text = "Flower - Covers 5 cells"
+
+[node name="FlowerIcon" type="VBoxContainer" parent="PlantToolbar/FlowerBtn"]
+layout_mode = 1
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="FlowerCenter" type="ColorRect" parent="PlantToolbar/FlowerBtn/FlowerIcon"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1, 0.9, 0.3)
+
+[node name="FlowerPetals" type="HBoxContainer" parent="PlantToolbar/FlowerBtn/FlowerIcon"]
+layout_mode = 2
+
+[node name="P1" type="ColorRect" parent="PlantToolbar/FlowerBtn/FlowerIcon/FlowerPetals"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+color = Color(1, 0.7, 0.85)
+
+[node name="P2" type="ColorRect" parent="PlantToolbar/FlowerBtn/FlowerIcon/FlowerPetals"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+color = Color(1, 0.7, 0.85)
+
+[node name="BushBtn" type="Button" parent="PlantToolbar"]
+custom_minimum_size = Vector2(80, 80)
+disabled = true
+tooltip_text = "Bush - Unlocks at level 6"
+
+[node name="BushIcon" type="VBoxContainer" parent="PlantToolbar/BushBtn"]
+layout_mode = 1
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="BushCircle" type="ColorRect" parent="PlantToolbar/BushBtn/BushIcon"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+color = Color(0.4, 0.8, 0.4)
+
+[node name="StarBtn" type="Button" parent="PlantToolbar"]
+custom_minimum_size = Vector2(80, 80)
+disabled = true
+tooltip_text = "Star - Unlocks at level 15"
+
+[node name="StarIcon" type="VBoxContainer" parent="PlantToolbar/StarBtn"]
+layout_mode = 1
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="StarShape" type="Polygon2D" parent="PlantToolbar/StarBtn/StarIcon"]
+polygon = PackedVector2Array(Vector2(0, -16), Vector2(5, -5), Vector2(16, -5), Vector2(8, 3), Vector2(11, 16), Vector2(0, 10), Vector2(-11, 16), Vector2(-8, 3), Vector2(-16, -5), Vector2(-5, -5))
+color = Color(1, 0.9, 0.3)
+
+[node name="CactusBtn" type="Button" parent="PlantToolbar"]
+custom_minimum_size = Vector2(80, 80)
+disabled = true
+tooltip_text = "Cactus - Unlocks at level 25"
+
+[node name="CactusIcon" type="VBoxContainer" parent="PlantToolbar/CactusBtn"]
+layout_mode = 1
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="CactusBody" type="ColorRect" parent="PlantToolbar/CactusBtn/CactusIcon"]
+custom_minimum_size = Vector2(12, 36)
+layout_mode = 2
+color = Color(0.5, 0.8, 0.5)
+
+[node name="GridContainer" type="Node2D" parent="."]
+position = Vector2(540, 950)
+
+[node name="Grid" type="Node2D" parent="GridContainer"]
+script = ExtResource("2_grid")
+
+[node name="GameFooter" type="CanvasLayer" parent="."]
+script = ExtResource("4_footer")
+
+[node name="GrowButton" type="Button" parent="GameFooter"]
+anchors_preset = 12
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -130.0
+offset_right = 100.0
+offset_bottom = -50.0
+grow_horizontal = 1
+text = "🌱 GROW"
+
+[node name="PauseButton" type="Button" parent="GameFooter"]
+anchors_preset = 12
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -130.0
+offset_right = -20.0
+offset_bottom = -50.0
+text = "⏸"

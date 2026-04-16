@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://bloom_plant_toolbar"]
+
+[ext_resource type="Script" path="res://scripts/game/plant_toolbar.gd" id="1_toolbar"]
+
+[node name="PlantToolbar" type="HBoxContainer" script=ExtResource("1_toolbar")]
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="FlowerBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 80)
+tooltip_text = "Flower - Covers 5 cells"
+
+[node name="FlowerIcon" type="VBoxContainer" parent="FlowerBtn"]
+layout_mode = 1
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="FlowerPetal1" type="ColorRect" parent="FlowerBtn/FlowerIcon"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0.7, 0.85)
+
+[node name="FlowerPetal2" type="ColorRect" parent="FlowerBtn/FlowerIcon"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0.7, 0.85)
+
+[node name="FlowerPetal3" type="ColorRect" parent="FlowerBtn/FlowerIcon"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0.7, 0.85)
+
+[node name="FlowerCenter" type="ColorRect" parent="FlowerBtn/FlowerIcon"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1, 0.9, 0.3)
+
+[node name="BushBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 80)
+disabled = true
+tooltip_text = "Bush - Unlocks at level 6"
+
+[node name="BushIcon" type="VBoxContainer" parent="BushBtn"]
+layout_mode = 1
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="BushCircle" type="ColorRect" parent="BushBtn/BushIcon"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(0.4, 0.8, 0.4)
+
+[node name="StarBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 80)
+disabled = true
+tooltip_text = "Star - Unlocks at level 15"
+
+[node name="StarIcon" type="VBoxContainer" parent="StarBtn"]
+layout_mode = 1
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="StarShape" type="Polygon2D" parent="StarBtn/StarIcon"]
+polygon = PackedVector2Array(Vector2(0, -20), Vector2(6, -6), Vector2(20, -6), Vector2(10, 4), Vector2(14, 20), Vector2(0, 12), Vector2(-14, 20), Vector2(-10, 4), Vector2(-20, -6), Vector2(-6, -6))
+
+[node name="CactusBtn" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 80)
+disabled = true
+tooltip_text = "Cactus - Unlocks at level 25"
+
+[node name="CactusIcon" type="VBoxContainer" parent="CactusBtn"]
+layout_mode = 1
+alignment = BoxContainer.ALIGNMENT_CENTER
+
+[node name="CactusBody" type="ColorRect" parent="CactusBtn/CactusIcon"]
+custom_minimum_size = Vector2(14, 40)
+layout_mode = 2
+color = Color(0.5, 0.8, 0.5)

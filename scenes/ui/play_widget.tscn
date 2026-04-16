@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://playwidget"]
+
+[ext_resource type="Script" path="res://scripts/ui/play_widget.gd" id="1_widget"]
+
+[node name="PlayWidget" type="Control"]
+script = ExtResource("1_widget")
+
+[node name="PreviewContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+custom_minimum_size = Vector2(200, 150)
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 1
+offset_top = 160.0
+text = "Level 1"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+offset_top = 200.0
+text = "Play"

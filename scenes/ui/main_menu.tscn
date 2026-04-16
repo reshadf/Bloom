@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://mainmenu"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_mainmenu"]
+[ext_resource type="PackedScene" uid="uid://dailyrewards" path="res://scenes/ui/daily_rewards.tscn" id="2_daily"]
+[ext_resource type="PackedScene" uid="uid://btn_primary" path="res://scenes/ui/buttons.tscn" id="4_btn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mainmenu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.96, 0.94, 0.9, 1)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -400.0
+offset_right = 200.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Logo" type="TextureRect" parent="VBox"]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+
+[node name="PlayButton" parent="VBox" instance=ExtResource("4_btn")]
+layout_mode = 2
+text = "Play"
+metadata/_custom_type_script = "res://scripts/ui/buttons.gd"
+
+[node name="ButtonRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LevelsButton" type="Button" parent="VBox/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Levels"
+
+[node name="StoreButton" type="Button" parent="VBox/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Store"
+
+[node name="SettingsButton" type="Button" parent="VBox/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Settings"
+
+[node name="DailyRewards" parent="VBox" instance=ExtResource("2_daily")]
+visible = false
+layout_mode = 2

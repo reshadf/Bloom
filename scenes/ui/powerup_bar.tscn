@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://powerupbar"]
+
+[ext_resource type="Script" path="res://scripts/ui/powerup_bar.gd" id="1_powerup"]
+[ext_resource type="PackedScene" uid="uid://powerupbtn" path="res://scenes/ui/powerup_button.tscn" id="2_pbtn"]
+
+[node name="PowerupBar" type="Control"]
+script = ExtResource("1_powerup")
+
+[node name="NavRow" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 80.0
+
+[node name="HintButton" type="Button" parent="NavRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hint"
+
+[node name="RestartButton" type="Button" parent="NavRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Restart"
+
+[node name="HomeButton" type="Button" parent="NavRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Home"
+
+[node name="PowerupRow" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = -20.0
+grow_horizontal = 2
+theme_override_constants/separation = 16
