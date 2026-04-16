@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Bloom"
 config/description="A zen puzzle game - plant seeds and cover exactly 100% of the grid"
-run/main_scene="res://scenes/screens/main_menu.tscn"
+run/main_scene="res://scenes/screens/splash_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/images/ui/icon.svg"
 
