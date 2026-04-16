@@ -28,6 +28,7 @@ var selected_plant: String = "flower"
 var unlocked_plants: Array = ["flower"]
 
 func _ready() -> void:
+	print("GameScreen: loading level ", GameState.current_level)
 	# Header signals
 	home_btn.pressed.connect(_on_home)
 	restart_btn.pressed.connect(_on_retry)
@@ -51,7 +52,8 @@ func _ready() -> void:
 	grow_btn.modulate = Color(0.6, 0.6, 0.6, 0.5)
 	
 	# Create confetti
-	confetti = preload("res://scripts/game/confetti_burst.gd").new()
+	var confetti_scene = preload("res://scenes/game/confetti.tscn")
+	confetti = confetti_scene.instantiate()
 	add_child(confetti)
 	
 	start_level(GameState.current_level)

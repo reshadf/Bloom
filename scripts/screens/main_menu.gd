@@ -6,14 +6,17 @@ extends CanvasLayer
 @onready var settings_btn = $VBox/MenuButtons/SettingsBtn
 
 func _ready() -> void:
+	print("MainMenu: loaded!")
 	play_button.pressed.connect(_on_play)
 	levels_btn.pressed.connect(_on_levels)
 	shop_btn.pressed.connect(_on_shop)
 	settings_btn.pressed.connect(_on_settings)
 
 func _on_play() -> void:
-	# Play from current level or level 1
-	get_tree().change_scene_to_file("res://scenes/game/game_screen.tscn")
+	print("MainMenu: play pressed, loading game_screen...")
+	var result = get_tree().change_scene_to_file("res://scenes/game/game_screen.tscn")
+	if result != OK:
+		print("MainMenu: FAILED to load game_screen, error: ", result)
 
 func _on_levels() -> void:
 	get_tree().change_scene_to_file("res://scenes/screens/level_select.tscn")
